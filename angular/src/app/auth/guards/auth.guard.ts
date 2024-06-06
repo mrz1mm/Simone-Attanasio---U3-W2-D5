@@ -9,7 +9,7 @@ import {
 } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -25,9 +25,7 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       switchMap((user) =>
         this.authService.isLoggedIn$.pipe(
           map((isLoggedIn) => {
-            if (!isLoggedIn) {
-              return this.router.createUrlTree(['/auth/login']);
-            }
+            if (!isLoggedIn) return this.router.createUrlTree(['/auth/login']);
             return true;
           })
         )

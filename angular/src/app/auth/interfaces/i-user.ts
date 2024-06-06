@@ -1,5 +1,6 @@
 export interface iUser {
   id: number;
+  role: string;
   name: string;
   surname: string;
   gender?: string;
