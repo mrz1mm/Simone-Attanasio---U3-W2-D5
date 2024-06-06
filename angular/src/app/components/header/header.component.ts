@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SearchService } from '../../services/search.service';
 import { ToDoListService } from '../../services/to-do-list.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,8 @@ import { ToDoListService } from '../../services/to-do-list.service';
 export class HeaderComponent {
   constructor(
     private searchService: SearchService,
-    private todolistService: ToDoListService
+    private todolistService: ToDoListService,
+    private authService: AuthService
   ) {}
 
   onSearch(event: Event) {
@@ -24,5 +26,9 @@ export class HeaderComponent {
     if (navbar) {
       navbar.classList.toggle('show');
     }
+  }
+
+  logout() {
+    this.authService.logout();
   }
 }

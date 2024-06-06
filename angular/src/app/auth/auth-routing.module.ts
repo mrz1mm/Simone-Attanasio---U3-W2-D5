@@ -8,9 +8,9 @@ import { AdminGuard } from './guards/admin.guard';
 import { GuestGuard } from './guards/guest.guard';
 
 const routes: Routes = [
-  { path: '', component: AuthComponent, canActivate: [AdminGuard] },
-  { path: 'login', component: LoginComponent, canActivate: [GuestGuard] },
-  { path: 'register', component: RegisterComponent, canActivate: [GuestGuard] },
+  { path: '', component: AuthComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
 ];
 
 @NgModule({

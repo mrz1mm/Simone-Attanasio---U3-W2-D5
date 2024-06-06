@@ -59,15 +59,38 @@
             >
           </li>
         </ul>
-        <form class="d-flex" role="search">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-            (input)="onSearch($event)"
-          />
-        </form>
+        <div class="d-flex align-items-center">
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              (input)="onSearch($event)"
+            />
+          </form>
+
+          <div class="flex-shrink-0 dropdown">
+            <a
+              href="#"
+              class="d-block link-body-emphasis text-decoration-none dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                id="profile"
+                src="https://media.licdn.com/dms/image/C5603AQFTTOGgZOp0fA/profile-displayphoto-shrink_800_800/0/1540802000219?e=1723075200&v=beta&t=FBTX6iAgXYlwcHB_M9Gusz4tb9svSnvBG38P6A8wXJw"
+                alt="mdo"
+                class="rounded-circle"
+              />
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end text-small shadow">
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" (click)="logout()">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </nav>
