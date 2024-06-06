@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "email": "zimone17@gmail.com",
+      "password": "$2a$10$gwaQgWRK49lscx3g4dCpXOzxeiwcRVg7aUYAhXd0gF8C7Yz.QXLAW",
+      "name": "Simone",
+      "surname": "Attanasio",
+      "gender": "male",
+      "dateBirth": "1995-10-25",
+      "biography": "Sdasdasd",
+      "userImage": null,
+      "username": "mr_z1m",
+      "id": 1
+    }
+  ]
+}

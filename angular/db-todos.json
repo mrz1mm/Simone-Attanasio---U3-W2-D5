@@ -7,7 +7,7 @@
       "userId": "26"
     },
     {
-      "completed": true,
+      "completed": false,
       "id": "2",
       "todo": "Memorize the fifty states and their capitals",
       "userId": "48"
@@ -25,10 +25,10 @@
       "userId": "48"
     },
     {
+      "completed": true,
       "id": "5",
       "todo": "Solve a Rubik's cube",
-      "completed": false,
-      "userId": 31
+      "userId": "31"
     },
     {
       "id": "6",

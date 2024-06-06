@@ -31,7 +31,6 @@ export class ToDoListService {
   todosCompletedTrue$ = new BehaviorSubject<iTodosWithUsers[]>([]);
   todosCompletedTrueArray: iTodosWithUsers[] = [];
   todosCompletedTrueObservable = this.todosCompletedTrue$.asObservable();
-  todosCompletedFalse$ = new BehaviorSubject<iTodosWithUsers[]>([]);
 
   usersWithTodos$ = new BehaviorSubject<iUsersWithTodos[]>([]);
   usersWithTodosArray: iUsersWithTodos[] = [];
@@ -99,7 +98,6 @@ export class ToDoListService {
       }) || [];
     this.todoWithUsers$.next(todosWithUsers);
     this.todoWithUsersArray = todosWithUsers;
-    console.log('todosWithUsers', todosWithUsers);
   }
 
   getTodosWithUsersFilteredByCompleted(completed: boolean): void {
@@ -108,15 +106,11 @@ export class ToDoListService {
 
     this.todosCompletedTrueArray = todosWithUsersFilteredByCompleted;
     this.todosCompletedTrue$.next(todosWithUsersFilteredByCompleted);
-    console.log(`completed ${completed}`, todosWithUsersFilteredByCompleted);
   }
 
   getUsersWithTodos(): void {
     const todos = this.allGetObject?.todos;
     const users = this.allGetObject?.users;
-
-    console.log('todos', todos);
-    console.log('users', users);
 
     const usersWithTodos: iUsersWithTodos[] =
       users?.map((user) => {
@@ -131,11 +125,6 @@ export class ToDoListService {
 
     this.usersWithTodos$.next(usersWithTodos);
     this.usersWithTodosArray = usersWithTodos;
-    console.log('usersWithTodos', usersWithTodos);
-    console.log(
-      'Prova',
-      usersWithTodos?.[0]?.todos?.[0].todo ?? 'No todos found'
-    );
   }
 
   searchByUser(searchTerm: string): void {
@@ -147,7 +136,6 @@ export class ToDoListService {
     );
     this.userSearched$.next(userSearched);
     this.userSearchedArray = userSearched;
-    console.log('userSearched', userSearched);
   }
 
   searchByTodo(searchTerm: string): void {
@@ -159,7 +147,6 @@ export class ToDoListService {
     );
     this.todosSearched$.next(todosSearched);
     this.todosSearchedArray = todosSearched;
-    console.log('todosSearched', todosSearched);
   }
 
   setSearchTerm(term: string): void {
@@ -175,8 +162,6 @@ export class ToDoListService {
       todo: todo.todo,
       userId: todo.userId?.id ?? 0,
     };
-    console.log('newTodo', newTodo);
-    console.log(`Updating todo:`, todo);
     this.http
       .put<iTodos>(`${this.todosUrl}/${todo.id}`, newTodo)
       .subscribe(() => {
